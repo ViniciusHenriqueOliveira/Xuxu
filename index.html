@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para meu xuxu 💖</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="start-page">
+  <!-- Som da batida do coração -->
+  <audio id="heartbeat" autoplay loop>
+    <source src="heartbeat.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="hearts"></div>
+
+  <button id="startButton">💗 Aperte e descubra 💗</button>
+
+  <script>
+    const button = document.getElementById('startButton');
+    const heartsContainer = document.querySelector('.hearts');
+
+    button.addEventListener('click', () => {
+      // Esconde o botão
+      button.style.display = 'none';
+
+      // Cria os corações flutuantes
+      for (let i = 0; i < 40; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.textContent = '💖';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (3 + Math.random() * 3) + 's';
+        heartsContainer.appendChild(heart);
+      }
+
+      // Espera 5 segundos e muda para a próxima página
+      setTimeout(() => {
+        window.location.href = 'teamo.html';
+      }, 5000);
+    });
+  </script>
+</body>
+</html>
